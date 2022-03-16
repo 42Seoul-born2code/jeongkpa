@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 15:52:07 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/16 16:42:11 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/16 18:27:24 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_isspace(char c)
 
 int	ft_atoi(const char *str)
 {
-	unsigned long	ans;
+	long long		ans;
 	int				sign;
 	size_t			i;
 
