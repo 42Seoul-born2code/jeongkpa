@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:18:24 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/16 18:34:53 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/16 19:45:17 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static int	free_all(char **ret)
 		ret[i] = NULL;
 		i++;
 	}
+	free(ret);
 	return (0);
 }
 

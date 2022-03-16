@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:48:28 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/16 18:00:51 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/16 19:48:56 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (!s || fd < 0)
+	if (!s)
 		return ;
 	write(fd, s, ft_strlen(s));
 }

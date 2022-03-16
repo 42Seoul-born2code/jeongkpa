@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:58:07 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/16 18:00:31 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/16 19:49:05 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (!s || fd < 0)
+	if (!s)
 		return ;
 	write(fd, s, ft_strlen(s));
 	write(fd, "\n", 1);
