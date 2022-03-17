@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 14:48:05 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/17 17:15:43 by jeongkpa         ###   ########.fr       */
+/*   Created: 2022/03/17 17:48:41 by jeongkpa          #+#    #+#             */
+/*   Updated: 2022/03/17 18:18:47 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	cnt;
+	t_list	*curr;
+	t_list	*temp;
+	t_list	*newlst;
 
-	cnt = 0;
+	if (lst == NULL || f == NULL || del == NULL)
+		return (0);
+	newlst = ft_lstnew(f(lst->content));
+	if (newlst == NULL)
+		return (0);
+	curr = newlst;
+	lst = lst->next;
 	while (lst)
 	{
+		temp = ft_lstnew(f(lst->content));
+		if (temp == NULL)
+		{
+			ft_lstclear(&newlst, del);
+			return (0);
+		}
+		curr->next = temp;
+		curr = temp;
 		lst = lst->next;
-		cnt++;
 	}
-	return (cnt);
+	return (newlst);
 }
