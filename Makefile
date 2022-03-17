@@ -6,7 +6,7 @@
 #    By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 15:56:46 by jeongkpa          #+#    #+#              #
-#    Updated: 2022/03/17 18:25:07 by jeongkpa         ###   ########.fr        #
+#    Updated: 2022/03/17 20:05:53 by jeongkpa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,18 +24,18 @@ SRCS = $(addprefix $(SR), $(SRC))
 OBJ = $(SRCS:.c=.o)
 NAME = libft.a
 AR = ar rc
-GCC = gcc
-OPTION = -Wall -Wextra -Werror
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 all : $(NAME)
 
 so:
-	$(GCC) -fPIC $(OPTION) $(SRCS)
+	$(CC) -fPIC $(OPTION) $(SRCS)
 	gcc -shared -o libft.so $(OBJ)
 
 .c.o :
-	$(GCC) $(OPTION) -c -I $(HEADER) $< -o ${<:.c=.o}
+	$(CC) $(OPTION) -c -I $(HEADER) $< -o ${<:.c=.o}
 
 $(NAME) : $(OBJ)
 	$(AR) $(NAME) $(OBJ)
@@ -49,4 +49,3 @@ fclean : clean
 re : fclean all
 
 .PHONY : all clean fclean re
-

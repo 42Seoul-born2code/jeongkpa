@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:18:24 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/17 19:17:16 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/17 20:00:16 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,6 @@ char	**ft_split(const char *str, char c)
 	if (!ans)
 		return (NULL);
 	if (do_split(ans, str, c) == 0)
-	{
-		free(ans);
 		ans = NULL;
-	}
 	return (ans);
 }

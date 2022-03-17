@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:20:58 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/16 17:30:58 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/17 19:38:53 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ size_t	ft_nb_len(int nb)
 
 char	*ft_itoa(int n)
 {
-	int		len;
-	char	*str;
-	long	nb;
+	size_t			len;
+	char			*str;
+	unsigned int	nb;
 
 	len = ft_nb_len(n);
 	nb = n;
