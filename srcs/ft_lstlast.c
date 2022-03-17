@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:43:07 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/17 14:47:32 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:27:44 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*cur_lst;
+	t_list	*cur;
 
 	if (!lst)
 		return (NULL);
-	cur_lst = lst;
-	while (cur_lst->next != NULL)
-		cur_lst = cur_list->next;
-	return (cur_lst);
+	cur = lst;
+	while (cur->next != NULL)
+		cur = cur->next;
+	return (cur);
 }

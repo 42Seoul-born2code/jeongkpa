@@ -6,19 +6,19 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:48:41 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/17 18:18:47 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:31:41 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*curr;
 	t_list	*temp;
 	t_list	*newlst;
 
-	if (lst == NULL || f == NULL || del == NULL)
+	if (lst == NULL || f == NULL)
 		return (0);
 	newlst = ft_lstnew(f(lst->content));
 	if (newlst == NULL)

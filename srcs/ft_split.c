@@ -6,49 +6,49 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:18:24 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/17 18:19:11 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/17 19:17:16 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	get_size(const char *s, char c)
+static size_t	get_word_cnt(const char *str, char c)
 {
-	size_t	ret;
+	size_t	cnt;
 	size_t	i;
 	size_t	temp;
 
-	ret = 0;
+	cnt = 0;
 	i = 0;
-	while (s[i])
+	while (str[i] != 0)
 	{
-		while (	c && s[i] == c)
+		while (c && str[i] == c)
 			i++;
 		temp = i;
-		while (s[i] && s[i] != c)
+		while (str[i] && str[i] != c)
 			i++;
 		if (temp != i)
-			ret++;
+			cnt++;
 	}
-	return (ret);
+	return (cnt);
 }
 
-static int	free_all(char **ret)
+static int	do_free(char **ans, size_t	j)
 {
 	size_t	i;
 
 	i = 0;
-	while (ret[i])
+	while (i <= j)
 	{
-		free(ret[i]);
-		ret[i] = NULL;
+		free(ans[i]);
+		ans[i] = NULL;
 		i++;
 	}
-	free(ret);
+	free(ans);
 	return (0);
 }
 
-static int	split_strings(char **ret, const char *s, char c)
+static int	do_split(char **ans, const char *str, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -56,35 +56,38 @@ static int	split_strings(char **ret, const char *s, char c)
 
 	i = 0;
 	j = 0;
-	while (s[i])
+	while (str[i])
 	{
-		while (s[i] == c)
+		while (str[i] == c)
 			i++;
 		temp = i;
-		while (s[i] && s[i] != c)
+		while (str[i] && str[i] != c)
 			i++;
 		if (temp != i)
 		{
-			ret[j] = ft_substr(s, temp, i - temp);
-			if (!ret[j++])
-				return (free_all(ret));
+			ans[j] = ft_substr(str, temp, i - temp);
+			if (!ans[j])
+				return (do_free(ans, j));
+			j++;
 		}
-		ret[j] = NULL;
+		ans[j] = NULL;
 	}
 	return (1);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(const char *str, char c)
 {
-	char	**ret;
+	char	**ans;
 
-	ret = ft_calloc(sizeof(char *), get_size(s, c) + 1);
-	if (!ret)
+	if (!str)
+		return (0);
+	ans = ft_calloc(sizeof(char *), get_word_cnt(str, c) + 1);
+	if (!ans)
 		return (NULL);
-	if (!split_strings(ret, s, c))
+	if (do_split(ans, str, c) == 0)
 	{
-		free(ret);
-		ret = NULL;
+		free(ans);
+		ans = NULL;
 	}
-	return (ret);
+	return (ans);
 }
