@@ -6,7 +6,7 @@
 #    By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 15:56:46 by jeongkpa          #+#    #+#              #
-#    Updated: 2022/03/20 17:08:43 by jeongkpa         ###   ########.fr        #
+#    Updated: 2022/03/20 18:14:55 by jeongkpa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,10 +40,6 @@ RM = rm
 RMFLAGS = -f
 
 all : $(NAME)
-
-so:
-	$(CC) -fPIC $(CFLAGS) $(SRCS)
-	gcc -shared -o libft.so $(OBJ)
 
 $(NAME) : $(OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)

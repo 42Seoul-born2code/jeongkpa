@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:38:39 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/20 17:48:03 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:24:29 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst == NULL)
+	if (lst == NULL || del == NULL)
 		return ;
 	del(lst->content);
 	free(lst);

@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:45:47 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/17 17:48:26 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/20 18:23:39 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*cur;
-
-	cur = lst;
-	while (cur)
+	while (lst || f)
 	{
-		f(cur->content);
-		cur = cur->next;
+		f(lst->content);
+		lst = lst->next;
 	}
 }
