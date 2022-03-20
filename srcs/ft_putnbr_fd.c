@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 18:02:50 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/16 18:17:44 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/20 16:09:56 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char str;
+	char	str;
 
 	if (n == -2147483648)
 	{
@@ -32,6 +32,6 @@ void	ft_putnbr_fd(int n, int fd)
 		str = '0' + n % 10;
 	}
 	else
-		str = '0'+ n;
+		str = '0' + n;
 	write(fd, &str, 1);
 }
