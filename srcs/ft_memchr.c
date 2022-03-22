@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 14:22:03 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/14 17:07:35 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/22 15:12:03 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (ptr[i] == character)
-			return ((unsigned char *)&s[i]);
+			return ((void *)&s[i]);
 		i++;
 	}
 	return (0);
