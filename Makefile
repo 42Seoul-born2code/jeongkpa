@@ -6,56 +6,67 @@
 #    By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 15:56:46 by jeongkpa          #+#    #+#              #
-#    Updated: 2022/03/20 18:14:55 by jeongkpa         ###   ########.fr        #
+#    Updated: 2022/03/22 17:56:53 by jeongkpa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SR = ./srcs/
-HEADER = ./includes/
-SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
-ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c\
-ft_strlcat.c ft_strncmp.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c\
-ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c\
-ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c\
-ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_striteri.c
+NAME	:=	libft.a
 
-BSRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c\
-ft_lstclear.c  ft_lstdelone.c ft_lstiter.c ft_lstmap.c
+CC 		:=	cc
+CFLAGS	:=	-Wall -Wextra -Werror
 
-SRCS = $(addprefix $(SR), $(SRC))
-OBJ = $(SRCS:.c=.o)
+SRCS	:=	ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
+			ft_isprint.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strlen.c \
+			ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
+			ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
+			ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
+			ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
+			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-BSRCS = $(addprefix $(SR), $(BSRC))
-BOBJS = $(BSRCS:.c=.o)
+BSRCS	:=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+			ft_lstmap.c
 
-NAME = libft.a
+SRCS	:= $(addprefix srcs/, $(SRCS))
+BSRCS	:= $(addprefix srcs/, $(BSRCS))
 
-AR = ar 
-ARFLAGS = rcus
+OBJS	=	$(SRCS:.c=.o)
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+BOBJS	=	$(BSRCS:.c=.o)
 
-RM = rm 
-RMFLAGS = -f
+RM		:=	rm
+RMFLAGS	:=	-f
 
-all : $(NAME)
+AR		:=	ar
+ARFLAGS	:=	rcus
 
-$(NAME) : $(OBJ)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+ifndef WITH_BONUS
+	CURR_OBJS = $(OBJS)
+else
+	CURR_OBJS = $(OBJS) $(BOBJS)
+endif
 
-bonus : $(OBJS) $(BOBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(BOBJS)
-	
-.c.o :
-	$(CC) $(CFLAGS) -c -I $(HEADER) $< -o $@
-	
-clean :
-	$(RM) $(RMFLAGS) $(OBJ) $(BOBJS)
+.PHONY	:	all
+all		:	$(NAME)
 
-fclean : clean
+$(NAME)	:	$(CURR_OBJS)
+	$(AR) $(ARFLAGS) $@ $^
+
+.PHONY	:	bonus
+bonus:
+	make WITH_BONUS=1 all
+
+.PHONY	:	.c.o
+.c.o	:
+	$(CC) $(CFLAGS) -c -Iincludes $< -o $@ 
+
+.PHONY	:	clean
+clean	:
+	$(RM) $(RMFLAGS) $(OBJS) $(BOBJS)
+
+.PHONY	:	fclean
+fclean	:	clean
 	$(RM) $(RMFLAGS) $(NAME)
 
-re : fclean all
-
-.PHONY : all bonus clean fclean re
+.PHONY	:	re
+re		:	fclean all
