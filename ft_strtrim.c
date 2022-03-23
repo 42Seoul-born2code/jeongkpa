@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:13:02 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/16 19:42:12 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:38:49 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char		*ans;
-	char const	*start;
-	char const	*end;
+	char	*ans;
+	char	*start;
+	char	*end;
 
 	if (set == NULL)
 		return (ft_strdup(s1));

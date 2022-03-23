@@ -6,7 +6,7 @@
 #    By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 15:56:46 by jeongkpa          #+#    #+#              #
-#    Updated: 2022/03/23 14:11:35 by jeongkpa         ###   ########.fr        #
+#    Updated: 2022/03/23 15:45:23 by jeongkpa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ bonus:
 
 .PHONY	:	.c.o
 .c.o	:
-	$(CC) $(CFLAGS) -c -Iincludes $< -o $@ 
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 .PHONY	:	clean
 clean	:
