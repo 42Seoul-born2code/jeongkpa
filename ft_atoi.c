@@ -6,12 +6,13 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 15:52:07 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/20 15:19:24 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/23 13:39:13 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
+#define LONG_MAX (9223372036854775807)
+
 static int	ft_isspace(char c)
 {
 	if (c == '\t' || c == '\n' || c == '\v'

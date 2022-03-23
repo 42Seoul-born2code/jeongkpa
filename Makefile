@@ -6,7 +6,7 @@
 #    By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 15:56:46 by jeongkpa          #+#    #+#              #
-#    Updated: 2022/03/22 17:56:53 by jeongkpa         ###   ########.fr        #
+#    Updated: 2022/03/23 14:11:35 by jeongkpa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,12 +27,9 @@ BSRCS	:=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 			ft_lstmap.c
 
-SRCS	:= $(addprefix srcs/, $(SRCS))
-BSRCS	:= $(addprefix srcs/, $(BSRCS))
+OBJS	:=	$(SRCS:.c=.o)
 
-OBJS	=	$(SRCS:.c=.o)
-
-BOBJS	=	$(BSRCS:.c=.o)
+BOBJS	:=	$(BSRCS:.c=.o)
 
 RM		:=	rm
 RMFLAGS	:=	-f

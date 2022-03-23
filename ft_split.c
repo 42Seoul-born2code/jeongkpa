@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:18:24 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/17 20:00:16 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/23 14:28:31 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ static size_t	get_word_cnt(const char *str, char c)
 	return (cnt);
 }
 
-static int	do_free(char **ans, size_t	j)
+static int	do_free(char **ans)
 {
 	size_t	i;
 
 	i = 0;
-	while (i <= j)
+	while (ans[i])
 	{
 		free(ans[i]);
 		ans[i] = NULL;
@@ -67,7 +67,7 @@ static int	do_split(char **ans, const char *str, char c)
 		{
 			ans[j] = ft_substr(str, temp, i - temp);
 			if (!ans[j])
-				return (do_free(ans, j));
+				return (do_free(ans));
 			j++;
 		}
 		ans[j] = NULL;
@@ -80,7 +80,7 @@ char	**ft_split(const char *str, char c)
 	char	**ans;
 
 	if (!str)
-		return (0);
+		return (NULL);
 	ans = ft_calloc(sizeof(char *), get_word_cnt(str, c) + 1);
 	if (!ans)
 		return (NULL);
