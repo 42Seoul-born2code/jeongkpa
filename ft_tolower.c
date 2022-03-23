@@ -6,11 +6,9 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 15:50:47 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/16 16:36:42 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/23 14:39:51 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_tolower(int c)
 {

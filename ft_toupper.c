@@ -6,11 +6,9 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 15:51:00 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/16 14:46:09 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/23 14:39:58 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_toupper(int c)
 {
