@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:06:32 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/17 19:21:15 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:48:31 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*new_mem;
 
-	new_mem = NULL;
 	if (s == NULL)
 		return (NULL);
 	if (ft_strlen(s) < start)
 		return (ft_strdup(""));
 	if (len > ft_strlen(s))
-		len = ft_strlen(s) + 1;
+		len = ft_strlen(s);
 	new_mem = malloc(len + 1);
 	if (!new_mem)
 		return (NULL);
