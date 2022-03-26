@@ -66,4 +66,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 
+#define LONG_MAX (9223372036854775807)
+
 #endif

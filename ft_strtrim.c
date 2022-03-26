@@ -14,9 +14,9 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*ans;
-	char	*start;
-	char	*end;
+	char		*ans;
+	char const	*start;
+	char const	*end;
 
 	if (set == NULL)
 		return (ft_strdup(s1));
