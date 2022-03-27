@@ -6,7 +6,7 @@
 /*   By: jeongkpa <jeongkpa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 12:26:49 by jeongkpa          #+#    #+#             */
-/*   Updated: 2022/03/23 13:37:49 by jeongkpa         ###   ########.fr       */
+/*   Updated: 2022/03/27 13:24:51 by jeongkpa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# define LONG_MAX (9223372036854775807)
 
 typedef struct s_list
 {
@@ -65,7 +67,5 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-
-#define LONG_MAX (9223372036854775807)
 
 #endif
